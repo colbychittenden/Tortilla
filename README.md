@@ -1,4 +1,4 @@
-![tortilla](https://raw.githubusercontent.com/colbychittenden/Tortilla/main/tortilla.png)
+https://raw.githubusercontent.com/colbychittenden/Tortilla/main/tortilla.png
 
 
 # Tortilla
