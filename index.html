@@ -1,154 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Welcome to Tortilla!</title>
-    <link rel="icon" href="icon.png" type="image/png">
-    <style>
-        body {
-            background-image: url('background.png');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            font-family: 'PT Sans', Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
-        .header {
-            text-align: center;
-            padding: 20px 0;
-        }
-        .header h1 {
-            display: none; /* Hide the initial header text */
-        }
-        .subheader {
-            display: none; /* Hide the initial subheader text */
-        }
-        .image-container {
-            position: relative;
-            width: 150px;
-            height: 150px;
-            overflow: hidden;
-        }
-        .image {
-            position: absolute;
-            top: -150px;
-            left: 0;
-            opacity: 0;
-            transition: top 1s, opacity 1s;
-        }
-        .new-header {
-            text-align: center;
-            font-size: 72px;
-            font-weight: bold;
-            color: white;
-            margin: 0;
-            padding: 0;
-            animation: slideInFromLeft 1s ease-in-out;
-        }
-        .new-subheader {
-            text-align: center;
-            font-size: 18px;
-            color: white;
-            margin-top: 20px;
-            animation: slideInFromRight 1s ease-in-out;
-        }
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 10px 0;
-            z-index: 1000;
-        }
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
-            font-size: 16px;
-            position: relative;
-        }
-        .navbar a::after {
-            content: "";
-            display: block;
-            width: 100%;
-            height: 4px;
-            background-color: blue;
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            border-radius: 10px;
-            opacity: 0;
-            transition: opacity 0.3s ease-in-out;
-        }
-        .navbar a:hover::after,
-        .navbar a.active::after {
-            opacity: 1;
-        }
-
-        @keyframes slideInFromLeft {
-            0% {
-                transform: translateX(-100%);
-            }
-            100% {
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes slideInFromRight {
-            0% {
-                transform: translateX(100%);
-            }
-            100% {
-                transform: translateX(0);
-            }
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub HTML Embed</title>
 </head>
 <body>
-    <div class="navbar">
-        <a href="index.html" class="active">Home</a>
-        <a href="play.html">Play EagleSMP</a>
-        <a href="store.html">Store</a>
-        <a href="apply-for-admin.html">Apply for Admin</a>
-        <a href="skin-downloader.html">Skin Downloader</a>
-        <a href="map.html">Live Map</a>
+    <div id="embed-container">
+        <!-- The fetched GitHub HTML will be placed here -->
     </div>
-    <div class="image-container">
-        <img class="image" src="https://github.com/colbychittenden/Tortilla/assets/96893162/1cd66606-90a7-4372-9f4b-958dbc316b06" alt="Image" width="150" height="150">
-    </div>
-    <div class="header">
-        <h1 class="new-header">Welcome to Tortilla!</h1>
-        <p class="subheader new-subheader">We love games.</p>
-    </div>
+
     <script>
-        // JavaScript to animate the image and text
-        window.addEventListener('load', () => {
-            const image = document.querySelector('.image');
-            const newHeader = document.querySelector('.new-header');
-            const newSubheader = document.querySelector('.new-subheader');
+        // URL of the raw GitHub HTML
+        const githubRawUrl = 'https://raw.githubusercontent.com/username/repo/master/path/to/yourfile.html';
 
-            // Animate the image
-            setTimeout(() => {
-                image.style.top = '0';
-                image.style.opacity = '1';
-            }, 500);
-
-            // Animate the new header and subheader
-            setTimeout(() => {
-                newHeader.style.display = 'block';
-                newSubheader.style.display = 'block';
-            }, 1000);
-        });
+        // Function to fetch and embed the HTML
+        fetch(githubRawUrl)
+            .then(response => response.text())
+            .then(html => {
+                // Get the element where you want to embed the HTML
+                const embedElement = document.getElementById('embed-container');
+                // Set the fetched HTML as the content of the element
+                embedElement.innerHTML = html;
+            })
+            .catch(error => {
+                console.error('Error fetching and embedding GitHub HTML:', error);
+            });
     </script>
 </body>
 </html>
