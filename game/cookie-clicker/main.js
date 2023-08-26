@@ -183,8 +183,6 @@ Game.Launch=function()
 		Game.SaveTo='CookieClickerGame';
 		if (Game.beta) Game.SaveTo='CookieClickerGameBetaDungeons';
 		l('versionNumber').innerHTML='v.'+Game.version+(Game.beta?' <span style="color:#ff0;">beta</span>':'');
-		l('links').innerHTML=(Game.beta?'<a href="../" target="blank">Live version</a> | ':'<a href="//orteil.dashnet.org/cookieclicker/beta/" target="blank">Try the beta!</a> | ')+'<a href="//orteil.dashnet.org/cookieclicker/" target="blank">Cookie Clicker Classic</a>';
-		//l('links').innerHTML='<a href="//orteil.dashnet.org/experiments/cookie/" target="blank">Cookie Clicker Classic</a>';
 		
 		//latency compensator stuff
 		Game.time=new Date().getTime();
@@ -3183,8 +3181,6 @@ Game.Launch=function()
 		
 		if (Game.storeToRebuild) Game.RebuildStore();
 		if (Game.upgradesToRebuild) Game.RebuildUpgrades();
-		
-		if (Game.T%(Game.fps)==0) document.title=Beautify(Game.cookies)+' '+(Game.cookies==1?'cookie':'cookies')+' - Cookie Clicker';
 		
 		Game.TickerAge--;
 		if (Game.TickerAge<=0 || Game.Ticker=='') Game.getNewTicker();
