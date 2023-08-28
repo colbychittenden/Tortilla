@@ -144,9 +144,7 @@
         <a href="games.html">Games</a>
         <a href="game/fake-virus/index.html">Fake Virus</a>
         <script>
-            // Check if the file is opened locally or on a website
             if (location.protocol === "file:") {
-                // If opened locally, add the "Website" entry to the navbar
                 const navbar = document.querySelector('.navbar');
                 const websiteLink = document.createElement('a');
                 websiteLink.href = 'https://tortilla.eaglesmp.org';
@@ -165,38 +163,31 @@
     <p class="update-available">Update Available!</p>
     <script>
         if (location.protocol === "file:") {
-            const versionText = 'v1.0.1'; // Replace with your text
+            const versionText = 'v1.0.1';
 
-            // Load the content from the GitHub URL
             fetch('https://raw.githubusercontent.com/colbychittenden/TortillaVersion/main/version')
                 .then(response => response.text())
                 .then(githubText => {
-                    // Set the text to the subheader
                     const subheader = document.querySelector('.subheader');
                     subheader.textContent = versionText;
 
-                    // Check if the text from version.txt is different from the GitHub URL
                     if (versionText.trim() !== githubText.trim()) {
-                        // Display the "Update Available!" message
                         const updateAvailable = document.querySelector('.update-available');
                        updateAvailable.style.display = 'block';
                    }
                 })
                 .catch(error => {
                     console.error('Error loading content:', error);
-                    // Set an error message immediately
                     const subheader = document.querySelector('.subheader');
                    subheader.textContent = 'Error loading content';
                 });
             }
         else {
-            // If opened on a website, set a random subheader text
                 const subheaderTexts = [
                     'We love games.',
                     'EagleSMP, play.eaglesmp.org',
                     'Colbster937',
-                    'Tortilla!',
-                    'Programmed by Colbster937'
+                    'Tortilla!'
                 ];
                 const randomIndex = Math.floor(Math.random() * subheaderTexts.length);
                 const randomText = subheaderTexts[randomIndex];
@@ -205,7 +196,6 @@
                 subheader.textContent = randomText;
         }
 
-        // Continue with the animations
         window.addEventListener('load', () => {
             const headerH1 = document.querySelector('.header h1');
             const imageContainer = document.querySelector('.image-container');
