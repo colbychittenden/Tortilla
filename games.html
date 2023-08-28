@@ -110,6 +110,17 @@
         <a href="games.html" class="active">Games</a>
         <a href="game/fake-virus/index.html">Fake Virus</a>
     </div>
+    <script>
+        // Check if the file is opened locally or on a website
+        if (location.protocol === "file:") {
+            // If opened locally, add the "Website" entry to the navbar
+            const navbar = document.querySelector('.navbar');
+            const websiteLink = document.createElement('a');
+            websiteLink.href = 'https://tortilla.eaglesmp.org';
+            websiteLink.textContent = 'Website';
+            navbar.appendChild(websiteLink);
+        }
+    </script>
     <br><br>
     <div class="game-container">
         <div class="game" onclick="openGame('game/minecraft/index.html')">

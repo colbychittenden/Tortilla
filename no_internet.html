@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Tortilla</title>
+    <title>Tortilla - No Connection.</title>
     <link rel="icon" href="tortilla.png" type="image/png">
     <style>
         body {
@@ -123,95 +123,25 @@
                 opacity: 1;
             }
         }
-        .update-available {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background-color: yellow;
-            color: black;
-            text-align: center;
-            padding: 5px;
-            font-weight: bold;
-            display: none;
-            animation: slideInFromLeft 1s ease-in-out forwards;
-        }
     </style>
 </head>
 <body>
-    <div class="navbar">
-        <a href="index.html" class="active">Home</a>
-        <a href="games.html">Games</a>
-        <a href="game/fake-virus/index.html">Fake Virus</a>
-        <script>
-            // Check if the file is opened locally or on a website
-            if (location.protocol === "file:") {
-                // If opened locally, add the "Website" entry to the navbar
-                const navbar = document.querySelector('.navbar');
-                const websiteLink = document.createElement('a');
-                websiteLink.href = 'https://tortilla.eaglesmp.org';
-                websiteLink.textContent = 'Website';
-                navbar.appendChild(websiteLink);
-            }
-        </script>
-    </div>
     <div class="image-container">
         <img class="image" src="tortilla.png" alt="Image">
     </div>
     <div class="header">
-        <h1>Welcome to Tortilla!</h1>
-        <p class="subheader"></p>
+        <h1>No Internet!</h1>
+        <p class="subheader">Tortilla requires internet to function correctly.</p>
     </div>
-    <p class="update-available">Update Available!</p>
     <script>
-        if (location.protocol === "file:") {
-            const versionText = 'v1.0.1'; // Replace with your text
-
-            // Load the content from the GitHub URL
-            fetch('https://raw.githubusercontent.com/colbychittenden/TortillaVersion/main/version')
-                .then(response => response.text())
-                .then(githubText => {
-                    // Set the text to the subheader
-                    const subheader = document.querySelector('.subheader');
-                    subheader.textContent = versionText;
-
-                    // Check if the text from version.txt is different from the GitHub URL
-                    if (versionText.trim() !== githubText.trim()) {
-                        // Display the "Update Available!" message
-                        const updateAvailable = document.querySelector('.update-available');
-                       updateAvailable.style.display = 'block';
-                   }
-                })
-                .catch(error => {
-                    console.error('Error loading content:', error);
-                    // Set an error message immediately
-                    const subheader = document.querySelector('.subheader');
-                   subheader.textContent = 'Error loading content';
-                });
-            }
-        else {
-            // If opened on a website, set a random subheader text
-                const subheaderTexts = [
-                    'We love games.',
-                    'EagleSMP, play.eaglesmp.org',
-                    'Colbster937',
-                    'Tortilla!',
-                    'Programmed by Colbster937'
-                ];
-                const randomIndex = Math.floor(Math.random() * subheaderTexts.length);
-                const randomText = subheaderTexts[randomIndex];
-
-                const subheader = document.querySelector('.subheader');
-                subheader.textContent = randomText;
-        }
-
-        // Continue with the animations
         window.addEventListener('load', () => {
             const headerH1 = document.querySelector('.header h1');
+            const subheader = document.querySelector('.subheader');
             const imageContainer = document.querySelector('.image-container');
 
             setTimeout(() => {
                 headerH1.style.opacity = '1';
+                subheader.style.opacity = '1';
             }, 1000);
 
             setTimeout(() => {
