@@ -2,8 +2,8 @@
     "name": "Tortilla",
     "short_name": "Tortilla",
     "start_url": ".",
-    "background_color": "#3900FF",
-    "theme_color": "#3900FF",
+    "background_color": "#3533cc",
+    "theme_color": "#3533cc",
     "display": "standalone",
     "icons": [
         {
